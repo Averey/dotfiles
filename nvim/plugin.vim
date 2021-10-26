@@ -95,6 +95,7 @@ let NERDTreeDirArrows = 1
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore = ['node_modules$[[dir]]']
 let g:NERDTreeWinSize = 30
+let NERDTreeShowHidden = 1
 
 " -------------deoplete-------------------------
 let g:deoplete#enable_at_startup = 1
@@ -153,7 +154,7 @@ nnoremap # :Ack! <C-r><c-w><cr>
 
 " ultisnips
 " ---------------------------------------------
-set rtp+=~/repo/ConfigFile
+" set rtp+=~/repo/ConfigFile
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
 " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
@@ -161,7 +162,7 @@ let g:UltiSnipsExpandTrigger="<s-tab>"
 let g:UltiSnipsJumpForwardTrigger="\\"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir = GitRepo . 'mySnips'
+let g:UltiSnipsSnippetsDir = CONFIG_FILE . 'mySnips'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mySnips"]
 
 " ale
