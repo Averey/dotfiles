@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Install
 Clone onto your laptop:
 ```sh
@@ -12,7 +11,3 @@ git clone git@github.com:Averey/dotfiles.git ~/dotfiles
 # open nvim and install plugin
 :PlugInstall
 ```
-=======
-# dotfiles
-personal dotfiles
->>>>>>> b2b68787b8ba61f376f20f954830199395bbdf2a
