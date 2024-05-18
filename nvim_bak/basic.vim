@@ -65,6 +65,7 @@ tnoremap <Esc> <C-\><C-n>
 
 " setting ------{{{
 
+set nocompatible
 " incremental replace
 set inccommand=nosplit
 set textwidth=80

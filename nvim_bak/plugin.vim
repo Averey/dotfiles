@@ -1,6 +1,28 @@
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
 
+" neovim 0.5 new feature plugin
+"
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/nvim-cmp'
+" Plug 'glepnir/lspsaga.nvim'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " Note stable yet, We recommend updating the parsers on update
+
+" For luasnip users.
+" Plug 'L3MON4D3/LuaSnip'
+" Plug 'saadparwaiz1/cmp_luasnip'
+
+" main one
+" Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+" 9000+ Snippets
+" Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+" lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
+" Need to **configure separately**
+" Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+
+
 " Plug 'dhruvasagar/vim-zoom'
 " Plug 'vim-scripts/ZoomWin'
 " Plug 'ap/vim-css-color'
@@ -9,15 +31,15 @@ call plug#begin('~/.config/nvim/plugged')
 " color Scheme
 Plug 'joshdick/onedark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'kyoz/purify', { 'rtp': 'vim' }
+" Plug 'kyoz/purify', { 'rtp': 'vim' }
 
 " complete
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " Plug 'zchee/deoplete-jedi'
-"Plug 'roxma/nvim-completion-manager'
-"Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'roxma/nvim-completion-manager'
+" Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/vim-easy-align'
@@ -44,13 +66,15 @@ Plug 'andymass/vim-matchup'
 Plug 'mhinz/vim-startify'
 
 "Plug 'junegunn/limelight.vim'
-Plug 'sheerun/vim-polyglot' "类似于pangloss/vim-javascript
+"Plug 'sheerun/vim-polyglot' "类似于pangloss/vim-javascript
 Plug 'maxmellon/vim-jsx-pretty'
-"Plug 'posva/vim-vue'
-" Plug 'pangloss/vim-javascript'
+Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 
 Plug 'kshenoy/vim-signature'
 
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -130,6 +154,21 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
+
+" Manage extensions.
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 
 "--------------fzf----------------------------
@@ -162,8 +201,11 @@ let g:UltiSnipsExpandTrigger="<s-tab>"
 let g:UltiSnipsJumpForwardTrigger="\\"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir = CONFIG_FILE . 'mySnips'
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "mySnips"]
+"let g:UltiSnipsSnippetsDir = '~/dotfiles/nvim/mySnips'
+let g:UltiSnipsSnippetDirectories=[
+      \ "UltiSnips", 
+      \ $HOME."/dotfiles/nvim/mySnips"
+      \ ]
 
 " ale
 " ----------------------------------------
@@ -178,3 +220,51 @@ let g:ale_sign_warning = '▌'
 " vim-matchup
 " ----------------------------------------
 let g:matchup_matchparen_offscreen = {}
+
+
+" vim-polyglot
+" ----------------------------------------
+" Enables syntax highlighting for JSDocs
+let g:javascript_plugin_jsdoc = 1
+
+
+" nvim-cmp
+" ------------------------------------------
+" set completeopt=menu,menuone,noselect
+" lua <<EOF
+"   -- Setup nvim-cmp.
+"   local cmp = require'cmp'
+"   cmp.setup({
+"     snippet = {
+"       expand = function(args)
+"         -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+"         vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+"         -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+"         -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+"       end,
+"     },
+"     mapping = {
+"       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+"       ['<C-f>'] = cmp.mapping.scroll_docs(4),
+"       ['<C-Space>'] = cmp.mapping.complete(),
+"       ['<C-e>'] = cmp.mapping.close(),
+"       ['<C-y>'] = cmp.config.disable, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
+"       ['<CR>'] = cmp.mapping.confirm({ select = true }),
+"     },
+"     sources = cmp.config.sources({
+"       { name = 'nvim_lsp' },
+"       -- { name = 'vsnip' }, -- For vsnip users.
+"       { name = 'ultisnips' }, -- For ultisnips users.
+"       -- { name = 'snippy' }, -- For snippy users.
+"       -- { name = 'luasnip' }, -- For luasnip users.
+"     }, {
+"       { name = 'buffer' },
+"     })
+"   })
+
+"   -- Setup lspconfig.
+"   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+"   require('lspconfig')['tsserver'].setup {
+"    capabilities = capabilities
+"   }
+" EOF

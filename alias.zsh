@@ -1,12 +1,23 @@
 # global
 alias clr=clear
-alias nvim="~/nvim-osx64/bin/nvim"
+#alias nvim="~/nvim-osx64/bin/nvim"
 alias vi="nvim"
 alias vim="nvim"
+
+alias hosts="sudo vim /etc/hosts"
+alias zshconfig="vim ~/.zshrc"
+alias path='echo $PATH | tr -s ":" "\n"'
+alias dotfiles="cd ~/dotfiles && $EDITOR"
+
+# cd
 alias ..="cd .."
 alias ...="cd ../.."
-alias hosts="sudo $EDITOR /etc/hosts"
-alias zshconfig="vim ~/.zshrc"
+# eza
+alias ls="eza --icons=auto"
+alias lsa="eza -a --icons=auto"
+alias ll="eza -l -a --icons=auto"
+alias la="eza -l -a --icons=auto"
+
 
 # tmux
 alias ta="tmux -2 a"

@@ -71,7 +71,7 @@ plugins=(
   #cdf(cd to the current Finder directory);
   #ofd(open the current directory in a finder window);
   # man-preview {command}
-  osx
+  macos
   z
 
   # third party
@@ -110,39 +110,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# 使用英文界面
 export LC_ALL=en_US.UTF-8
 
 export TERM=xterm-256color
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+#export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
-# nvm, node version manage
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export VISUAL=nvim  # Use neovim as 'preferred editor'
-export VIMCONFIG=~/.config/nvim
-export VIMDATA=~/.local/share/nvim
-
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --glob "!node_modules/*" -g "!.git/*"'
-
-#potion
-export PATH=/Users/zhoujinlin/vimscript_demo/potion/bin:$PATH
+#export FZF_DEFAULT_COMMAND='rg --files --no-ignore --glob "!node_modules/*" -g "!.git/*"'
 
 #zbar
-export LDFLAGS="-L$(brew --prefix zbar)/lib"
-export CFLAGS="-I$(brew --prefix zbar)/include"
+# export LDFLAGS="-L$(brew --prefix zbar)/lib"
+# export CFLAGS="-I$(brew --prefix zbar)/include"
 
-#python3
-export PATH=/Users/zhoujinlin/Library/Python/3.7/bin:$PATH
 
 bindkey '^n' autosuggest-execute
-
-# flutter
-export PATH="$PATH:/Users/zhoujinlin/cloudbutterfly/3i-fluter-demo/flutter/bin"
-export PUB_HOSTED_URL=https://pub.flutter-io.cn
-export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-
-export VUE_CLI_MODERN_BUILD=false
 
