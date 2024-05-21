@@ -14,10 +14,10 @@ normal = { family = "MesloLGS Nerd Font", style = "Regular" }
 size = 16 
 
 [window]
-opacity = 0.95
+# opacity = 0.95
 # blur = true
 decorations = "Buttonless"
-padding = { x = 0, y = 2 }
+padding = { x = 0, y = 0 }
 
 [keyboard]
 # bindings = [ ]

@@ -13,7 +13,9 @@ return {
         -- default mappings
         api.config.mappings.default_on_attach(bufnr)
         -- custom mappings
-        vim.keymap.set('n', '<Esc>', api.tree.close)
+        -- vim.keymap.set('n', '<Esc>', api.tree.close)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', '<Cmd>close<CR>', { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Esc>', '<Cmd>close<CR>', { noremap = true, silent = true })
       end
 
       local HEIGHT_RATIO = 0.6 -- You can change this
