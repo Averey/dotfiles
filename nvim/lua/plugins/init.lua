@@ -24,7 +24,6 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-  require 'plugins.color-theme',
   require 'plugins.telescope',
   require 'plugins.nvim-lspconfig',
   require 'plugins.nvim-cmp',
@@ -33,7 +32,6 @@ require('lazy').setup({
   require 'plugins.gitsings',
   require 'plugins.ui',
   require 'plugins.terminal',
-  -- require 'plugins.noice',
   -- { "rafamadriz/friendly-snippets" },
   -- {
   --   'akinsho/bufferline.nvim',

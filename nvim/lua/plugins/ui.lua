@@ -1,6 +1,22 @@
 return {
+  --[[colorscheme]]
+  { 'olimorris/onedarkpro.nvim' },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+    init = function()
+      require('catppuccin').setup {
+        transparent_background = true,
+      }
+
+      vim.cmd.colorscheme 'catppuccin'
+    end,
+  },
+  -- { 'rebelot/kanagawa.nvim', },
+  -- { 'folke/tokyonight.nvim', },
+
   { 'rcarriga/nvim-notify' },
-  -- Highlight todo, notes, etc in comments
   {
     'folke/todo-comments.nvim',
     event = 'VimEnter',
@@ -19,21 +35,11 @@ return {
       }
     end,
   },
-  -- { 'akinsho/bufferline.nvim', version = '*', dependencies = 'nvim-tree/nvim-web-devicons', opts = {} },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('lualine').setup {
-        -- default setions
-        -- sections = {
-        --   lualine_a = {'mode'},
-        --   lualine_b = {'branch', 'diff', 'diagnostics'},
-        --   lualine_c = {'filename'},
-        --   lualine_x = {'encoding', 'fileformat', 'filetype'},
-        --   lualine_y = {'progress'},
-        --   lualine_z = {'location'}
-        -- },
         sections = {
           lualine_x = { 'encoding' },
         },

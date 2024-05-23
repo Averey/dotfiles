@@ -77,6 +77,9 @@ return {
     pcall(require('telescope').load_extension, 'file_browser')
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
+    local list_function = function()
+      builtin.lsp_document_symbols { symbols = { 'function', 'variable', 'constant' } }
+    end
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
@@ -91,7 +94,7 @@ return {
     vim.keymap.set('n', '<space>fb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
 
     vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = '[S]earch [F]iles' })
-    -- vim.keymap.set('n', '@', builtin.lsp_document_symbols { symbols = 'function' }, { desc = '' })
+    vim.keymap.set('n', '@', list_function, { desc = '' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
