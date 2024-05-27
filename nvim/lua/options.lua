@@ -1,3 +1,8 @@
+--[[
+-- Most useful neovim options
+-- https://www.reddit.com/r/neovim/comments/1cytkbq/most_useful_neovim_options/?%24deep_link=true&correlation_id=f3e2733c-068e-4167-9118-67ce4e4bdb81&post_fullname=t3_1cytkbq&post_index=0&ref=email_digest&ref_campaign=email_digest&ref_source=email&utm_content=post_title&%243p=e_as&_branch_match_id=1322567020565710816&utm_medium=Email%20Amazon%20SES&_branch_referrer=H4sIAAAAAAAAA22P3U7EIBCFnwbv2m5LbVeTjTExvgahMO2S5U8YrL69g1WvTCA5fGfOzHBFjPmx6xJobbCVMbbW%2BFvH4xMbRh4vIGS%2BIxmS2YyXVpRkL9eaYvyZDa909n1vf%2FIqOAKJrofwbuqDkAOPmWSvPvG2vJFyIaMoGdZixVEpQkQTfC1jnLreD6MGiKJuw%2FgLpgJsmFRICayslcJo4iuHYeZcNafpDM3YT3Pz0PfnZpoVjDAuejn3lIt1Hg2zXjqo7bj4W%2BYwjdfwQc6JQIKVFDhprNBmg4wHFEq6KM3m%2F3dzKEnBr0ewoBMqeKTvE%2F0egwYtfAHFJwswdQEAAA%3D%3D
+--]]
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!

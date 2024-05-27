@@ -60,25 +60,26 @@ require('lazy').setup({
   --  This is equivalent to:
   --    require('Comment').setup({})
 
+  -- neovim 0.10 已经内置 comment 功能
   -- "gc" to comment visual regions/lines
-  {
-    'numToStr/Comment.nvim',
-    opts = {},
-    -- config = function()
-    -- SET VIM.G.SKIP_TS_CONTEXT_COMMENTSTRING_MODULE = TRUE SOMEWHERE IN YOUR CONFIGURATION TO SKIP BACKWARDS COMPATIBILITY ROUTINES AND SPEED UP LOADING.
-    -- VIM.G.SKIP_TS_CONTEXT_COMMENTSTRING_MODULE = TRUE
-    -- local prehook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()
-    -- require('Comment').setup {
-    --  pre_hook = prehook,
-    -- }
-    -- end,
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      -- tsx comment support
-      -- 'JoosepAlviste/nvim-ts-context-commentstring',
-    },
-  },
-
+  -- {
+  --   'numToStr/Comment.nvim',
+  --   opts = {},
+  --   -- config = function()
+  --   -- SET VIM.G.SKIP_TS_CONTEXT_COMMENTSTRING_MODULE = TRUE SOMEWHERE IN YOUR CONFIGURATION TO SKIP BACKWARDS COMPATIBILITY ROUTINES AND SPEED UP LOADING.
+  --   -- VIM.G.SKIP_TS_CONTEXT_COMMENTSTRING_MODULE = TRUE
+  --   -- local prehook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()
+  --   -- require('Comment').setup {
+  --   --  pre_hook = prehook,
+  --   -- }
+  --   -- end,
+  --   dependencies = {
+  --     'nvim-treesitter/nvim-treesitter',
+  --     -- tsx comment support
+  --     -- 'JoosepAlviste/nvim-ts-context-commentstring',
+  --   },
+  -- },
+  --
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
