@@ -95,6 +95,7 @@ return {
 
     vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '@', list_function, { desc = '' })
+    vim.keymap.set('n', '#', builtin.grep_string, { desc = '[S]earch current [W]ord' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()

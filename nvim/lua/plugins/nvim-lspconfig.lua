@@ -109,12 +109,12 @@ return {
         })
 
         -- For diagnostics for specific cursor position
-        -- vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-        --   group = vim.api.nvim_create_augroup('float_diagnostic_cursor', { clear = true }),
-        --   callback = function()
-        --     vim.diagnostic.open_float(nil, { focus = false, scope = 'cursor' })
-        --   end,
-        -- })
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+          group = vim.api.nvim_create_augroup('float_diagnostic_cursor', { clear = true }),
+          callback = function()
+            vim.diagnostic.open_float(nil, { focus = false, scope = 'cursor' })
+          end,
+        })
 
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
