@@ -1,25 +1,16 @@
-import = [
-  # uncomment the flavour you want below:
-  # "~/.config/alacritty/catppuccin-latte.toml"
-  # "~/.config/alacritty/catppuccin-frappe.toml"
-  # "~/.config/alacritty/catppuccin-macchiato.toml"
-  "~/.config/alacritty/catppuccin-mocha.toml",
-  ""
-]
+import = ['C:\Users\zjl\AppData\Roaming\alacritty\catppuccin\catppuccin-mocha.toml']
 
-[env]
-TERM = "xterm-256color"
-
-[font]
-normal = { family = "MesloLGS Nerd Font", style = "Regular" }
-size = 16 
+[shell]
+program = "powershell"
 
 [window]
-# opacity = 0.95
-# blur = true
-decorations = "None"
+opacity = 0.95
 padding = { x = 0, y = 0 }
 dynamic_padding = true
+
+[font]
+normal = { family = "MesloLGS Nerd Font", style = "Regular"}
+size = 13
 
 [keyboard]
 # use ctrl + number for selecting window
@@ -34,9 +25,9 @@ bindings= [
   {key="Key6", mods= "Control", chars= "\u001b[54;5u" },
   {key="Key7", mods= "Control", chars= "\u001b[55;5u" },
   {key="Key8", mods= "Control", chars= "\u001b[56;5u" },
-  {key="Key9", mods= "Control", chars= "\u001b[57;5u" }
-]
+  {key="Key9", mods= "Control", chars= "\u001b[57;5u" },
 
-[cursor]
-style = { shape = "Underline"}
-# vi_mode_style = "Block"
+  # window alacritty
+  # https://www.reddit.com/r/Alacritty/comments/bd3pfl/ctrlspace_key_binding/
+  {key="Space", mods= "Control", chars= "\u0000" },
+]

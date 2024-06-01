@@ -55,7 +55,17 @@ return {
         end,
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
-
+      window = {
+        documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
+      },
+      formatting = {
+        format = function(entry, vim_item)
+          vim_item.abbr = string.sub(vim_item.abbr, 1, 20)
+          return vim_item
+        end,
+      },
+      --
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
       --

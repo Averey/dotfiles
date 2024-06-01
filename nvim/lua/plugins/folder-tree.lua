@@ -22,6 +22,11 @@ return {
       local WIDTH_RATIO = 0.5 -- You can change this too
       require('nvim-tree').setup {
         on_attach = on_attach,
+        actions = {
+          open_file = {
+            window_picker = { enable = false },
+          },
+        },
         view = {
           float = {
             enable = true,

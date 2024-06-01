@@ -13,26 +13,23 @@ keymap('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 keymap({ 'n', 'i' }, '<C-,>', '<ESC><cmd>vsp $MYVIMRC<CR><Esc>')
 
+keymap('n', 'Y', 'y$', { silent = true }) -- Make Y act like C and D
+keymap('v', '<leader>y', '"+y', { silent = true }) -- yank current select to system clipboard
+keymap('n', '<leader>y', 'V"+y', { silent = true }) -- yank current line to system clipboard
+keymap('n', '<leader>p', '"+p', { silent = true }) -- paste system slipboard content
+
 -- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
 keymap('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 keymap('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 keymap('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 keymap('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 keymap('n', '<leader>\\', '<cmd>vs<CR>')
 keymap('n', '<leader>-', '<cmd>sp<CR>')
--- keymap('n', '<C-h>', '<Cmd>NvimTmuxNavigateLeft<CR>', { desc = 'Move focus to the left window' })
--- keymap('n', '<C-l>', '<Cmd>NvimTmuxNavigateRight<CR>', { desc = 'Move focus to the right window' })
--- keymap('n', '<C-j>', '<Cmd>NvimTmuxNavigateDown<CR>', { desc = 'Move focus to the lower window' })
--- keymap('n', '<C-k>', '<Cmd>NvimTmuxNavigateUP<CR>', { desc = 'Move focus to the upper window' })
--- keymap('n', '<C-Space>', '<Cmd>NvimTmuxNavigateLastActive<CR>', { desc = 'Move focus to the upper window' })
 
--- keymap('n', '<leader>q', '<cmd>q<CR>')
-keymap('n', '<leader>q', vim.cmd.quit)
+keymap('n', '<leader>q', '<cmd>q<CR>')
 keymap('n', '<leader>w', '<cmd>w<CR>')
 keymap('n', '-', '<C-^>')
+keymap('n', '<Tab>', '<C-^>')
 keymap('n', '<leader>;', 'mqA;<Esc>`q')
 keymap('n', '<leader>,', 'mqA,<Esc>`q')
 
