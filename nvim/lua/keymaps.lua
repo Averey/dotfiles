@@ -1,17 +1,26 @@
 -- [[ Basic Keymaps ]]
 --  See `:help keymap()`
 
+local Util = require("util")
 local keymap = vim.keymap.set
+
+
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+-- Set <Esc> for closing floatint windows
+-- keymap('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.opt.hlsearch = true
+keymap('n', '<Esc>', function ()
+  Util.close_floating()
+  vim.cmd("nohlsearch")
+end)
+
+
 
 keymap('v', '<', '<gv')
 keymap('v', '>', '>gv')
 keymap({ 'n', 'i' }, '<C-s>', '<ESC>:wa<CR>')
 
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
-keymap('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
-keymap({ 'n', 'i' }, '<C-,>', '<ESC><cmd>vsp $MYVIMRC<CR><Esc>')
+-- keymap({ 'n', 'i' }, '<C-,>', '<ESC><cmd>vsp $MYVIMRC<CR><Esc>')
 
 keymap('n', 'Y', 'y$', { silent = true }) -- Make Y act like C and D
 keymap('v', '<leader>y', '"+y', { silent = true }) -- yank current select to system clipboard
@@ -33,10 +42,11 @@ keymap('n', '<Tab>', '<C-^>')
 keymap('n', '<leader>;', 'mqA;<Esc>`q')
 keymap('n', '<leader>,', 'mqA,<Esc>`q')
 
+
 -- Diagnostic keymaps
 keymap('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 keymap('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-keymap('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+keymap('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 -- keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
