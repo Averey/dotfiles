@@ -64,6 +64,7 @@ return {
         documentation = cmp.config.window.bordered(),
         completion = cmp.config.window.bordered(),
       },
+      -- https://github.com/hrsh7th/nvim-cmp/discussions/609#discussioncomment-5727678
       formatting = {
         fields = { "abbr", "menu", "kind"},
         format = function(entry, item)
