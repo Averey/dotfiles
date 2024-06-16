@@ -15,11 +15,17 @@ keymap('n', '<Esc>', function ()
 end)
 
 
+keymap({ 'n', 'i' }, '<C-s>', '<ESC>:wa<CR>')
 
 keymap('v', '<', '<gv')
 keymap('v', '>', '>gv')
+
+-- [[ builtin
+-- gv -- repeats last selection
+-- gi -- enters insert at the last inserting point
+-- ]]
+keymap('n', 'gl', '`.') -- [G]o to the last change
 keymap('n', 'sp', '`[v`]') -- [S]elect [P]aste
-keymap({ 'n', 'i' }, '<C-s>', '<ESC>:wa<CR>')
 
 -- keymap({ 'n', 'i' }, '<C-,>', '<ESC><cmd>vsp $MYVIMRC<CR><Esc>')
 
