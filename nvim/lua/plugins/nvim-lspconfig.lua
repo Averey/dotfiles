@@ -91,6 +91,7 @@ return {
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
         -- Opens a popup that displays documentation about the word under your cursor
+        -- KK calling the function twice will jump into the floating window.
         --  See `:help K` for why this keymap.
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
@@ -98,21 +99,35 @@ return {
         --  For example, in C this would take you to the header.
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-        -- You will likely want to reduce updatetime which affects CursorHold
-        -- note: this setting is global and should be set only once
-        vim.o.updatetime = 250
-        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-          group = vim.api.nvim_create_augroup('float_diagnostic', { clear = true }),
-          callback = function()
-            vim.diagnostic.open_float(nil, { focus = false })
-          end,
+        -- disable inline diagnostic
+        vim.diagnostic.config({
+          virtual_text = false
         })
 
+        -- You will likely want to reduce updatetime which affects CursorHold
+        -- note: this setting is global and should be set only once
+        -- vim.o.updatetime = 250
+        -- vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        --   group = vim.api.nvim_create_augroup('float_diagnostic', { clear = true }),
+        --   callback = function()
+        --     vim.diagnostic.open_float(nil, { focus = false })
+        --   end,
+        -- })
+
         -- For diagnostics for specific cursor position
-        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        -- vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        vim.api.nvim_create_autocmd('CursorHold', {
           group = vim.api.nvim_create_augroup('float_diagnostic_cursor', { clear = true }),
           callback = function()
-            vim.diagnostic.open_float(nil, { focus = false, scope = 'cursor' })
+            local opts = {
+              focusable = false,
+              close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+              border = 'rounded',
+              source = 'always',
+              prefix = ' ',
+              scope = 'cursor',
+            }
+            vim.diagnostic.open_float(nil, opts)
           end,
         })
 
@@ -227,6 +242,10 @@ return {
           -- by the server configuration above. Useful when disabling
           -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+          server.handlers = {
+            ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"}),
+            ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = "rounded" }),
+          }
           require('lspconfig')[server_name].setup(server)
         end,
       },

@@ -33,14 +33,16 @@ require('lazy').setup({
   require 'plugins.ui',
   require 'plugins.terminal',
   -- { "rafamadriz/friendly-snippets" },
-  -- {
-  --   'akinsho/bufferline.nvim',
-  --   version = '*',
-  --   dependencies = 'nvim-tree/nvim-web-devicons',
-  --   config = function()
-  --     require('bufferline').setup {}
-  --   end,
-  -- },
+  {
+    'kylechui/nvim-surround',
+    version = '*', -- Use for stability; omit to use `main` branch for the latest features
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
 
   -- {
   --   'mrcjkb/rustaceanvim',
@@ -48,52 +50,6 @@ require('lazy').setup({
   --   lazy = false, -- This plugin is already lazy
   -- },
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
-  -- { 'alexghergh/nvim-tmux-navigation', opts = {} },
-
-  -- NOTE: Plugins can also be added by using a table,
-  -- with the first argument being the link and the following
-  -- keys can be used to configure plugin behavior/loading/etc.
-  --
-  -- Use `opts = {}` to force a plugin to be loaded.
-  --
-  --  This is equivalent to:
-  --    require('Comment').setup({})
-
-  -- neovim 0.10 已经内置 comment 功能
-  -- "gc" to comment visual regions/lines
-  -- {
-  --   'numToStr/Comment.nvim',
-  --   opts = {},
-  --   -- config = function()
-  --   -- SET VIM.G.SKIP_TS_CONTEXT_COMMENTSTRING_MODULE = TRUE SOMEWHERE IN YOUR CONFIGURATION TO SKIP BACKWARDS COMPATIBILITY ROUTINES AND SPEED UP LOADING.
-  --   -- VIM.G.SKIP_TS_CONTEXT_COMMENTSTRING_MODULE = TRUE
-  --   -- local prehook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()
-  --   -- require('Comment').setup {
-  --   --  pre_hook = prehook,
-  --   -- }
-  --   -- end,
-  --   dependencies = {
-  --     'nvim-treesitter/nvim-treesitter',
-  --     -- tsx comment support
-  --     -- 'JoosepAlviste/nvim-ts-context-commentstring',
-  --   },
-  -- },
-  --
-  -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
-  --
-  -- This is often very useful to both group configuration, as well as handle
-  -- lazy loading plugins that don't need to be loaded immediately at startup.
-  --
-  -- For example, in the following configuration, we use:
-  --  event = 'VimEnter'
-  --
-  -- which loads which-key before all the UI elements are loaded. Events can be
-  -- normal autocommands events (`:help autocmd-events`).
-  --
-  -- Then, because we use the `config` key, the configuration only runs
-  -- after the plugin has been loaded:
-  --  config = function() ... end
 
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
