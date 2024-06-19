@@ -11,7 +11,11 @@ import = [
 TERM = "xterm-256color"
 
 [font]
-normal = { family = "MesloLGS Nerd Font", style = "Regular" }
+# normal = { family = "MesloLGS Nerd Font", style = "Regular" }
+normal = { family = "FiraCode Nerd Font", style = "Regular" }
+# FiraCode 没有斜体jjjjjj
+italic = { family = "MesloLGS Nerd Font" }
+bold_italic = { family = "MesloLGS Nerd Font" }
 size = 16 
 
 [window]
