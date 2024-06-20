@@ -45,12 +45,10 @@ return {
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
-    local types = require 'cmp.types'
-    local str = require 'cmp.utils.str'
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
 
-    local log = require 'plenary.log'.new({ plugin = "uthman", level = "debug"})
+    -- local log = require 'plenary.log'.new({ plugin = "uthman", level = "debug"})
 
     cmp.setup {
       snippet = {
@@ -68,23 +66,10 @@ return {
       },
       -- https://github.com/hrsh7th/nvim-cmp/discussions/609#discussioncomment-5727678
       formatting = {
-        fields = { "abbr", "menu", "kind"},
+        -- fields = { "abbr", "menu", "kind"},
+        fields = {"abbr", "kind", "menu"},
+        expandable_indicator = false,
         format = function(entry, item)
-          -- log.debug(entry:get_completion_item())
-          -- log.debug()
-          -- item.menu = nil
-          -- return item
-          --
-          -- local label_detail = entry:get_completion_item().labelDetails
-          -- local content = item.abbr
-          -- if label_detail and label_detail.detail then
-          --   content = content .. label_detail.detail
-          -- end
-          --
-          -- item.menu = nil
-          -- item.abbr = content
-          -- return item
-
           local menu_icon = {
             nvim_lsp = "NLSP",
             nvim_lua = "NLUA",
@@ -101,28 +86,14 @@ return {
           if label_detail and label_detail.detail then
             content = content .. label_detail.detail
           end
-
           -- log.debug(item.abbr, label_detail)
 
-          fixed_width = fixed_width or false
-          if fixed_width then
-            vim.o.pumwidth = fixed_width
-          end
-
           local win_width = vim.api.nvim_win_get_width(0)
+          local max_content_width = math.floor(win_width * 0.4)
 
-          -- Set the max content width based on either: 'fixed_width'
-          -- or a percentage of the window width, in this case 40%.
-          -- We subtract 10 from 'fixed_width' to leave room for 'kind' fields.
-          local max_content_width = fixed_width and fixed_width - 10 or math.floor(win_width * 0.4)
-
-          -- Truncate the completion entry text if it's longer than the
-          -- max content width. We subtract 3 from the max content width
-          -- to account for the "..." that will be appended to it.
           if #content > max_content_width then
             item.abbr = vim.fn.strcharpart(content, 0, max_content_width - 3) .. "..."
           else
-            -- item.abbr = content .. (" "):rep(max_content_width - #content)
             item.abbr = content
           end
           return item
@@ -155,8 +126,6 @@ return {
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
         -- Manually trigger a completion from nvim-cmp.
-        --  Generally you don't need this, because nvim-cmp will display
-        --  completions whenever it has completion options available.
         ['<C-Space>'] = cmp.mapping.complete {},
 
         -- Think of <c-l> as moving to the right of your snippet expansion.

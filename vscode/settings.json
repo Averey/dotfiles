@@ -1,0 +1,235 @@
+{
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "editor.folding": true,
+    "editor.glyphMargin": true,
+    // "editor.renderWhitespace": "all",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+  
+    // vim 设置
+    // gh - show the hover tooltip.
+    "vim.leader": "<space>",
+    "vim.highlightedyank.enable": true,
+    "vim.visualstar": true,
+    //"vim.hlsearch": true,
+    "vim.visualModeKeyBindings": [
+      {
+        "before": [ "<tab>" ],
+        "commands": [ "editor.action.indentLines" ]
+      },
+      {
+        "before": [ ">" ],
+        "commands": [ "editor.action.indentLines" ]
+      },
+      {
+        "before": [ "<" ],
+        "commands": [ "editor.action.outdentLines" ]
+      },
+    ],
+    "vim.operatorPendingModeKeyBindingsNonRecursive": [
+      {
+          "before": ["("],
+          "after": ["i("]
+      },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["-"],
+        //"after": ["<ctrl>", "<tab>"]
+        "commands": [
+          "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+          "workbench.action.quickOpenNavigateNextInEditorPicker"
+        ],
+      },
+      {
+        "before": [ ":" ],
+        "commands": [ "workbench.action.showCommands", ],
+        "silent": true
+      },
+      {
+        "before": ["@"],
+        "commands": ["workbench.action.gotoSymbol"]
+      },
+      {
+        "before": ["="],
+        "commands": ["editor.action.formatSelection"]
+      },
+      {
+        "before": ["<tab>"],
+        "commands": [ "editor.action.indentLines" ]
+      },
+      {
+        "before": [ ">" ],
+        "commands": [ "editor.action.indentLines" ]
+      },
+      {
+        "before": [ "<" ],
+        "commands": [ "editor.action.outdentLines" ]
+      },
+      {
+        "before": [ "<leader>", "\\" ],
+        "commands": [ "workbench.action.splitEditor" ]
+      },
+      // {
+      //   "before": ["<leader>", "-"],
+      //   "commands": [
+      //     "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+      //     "workbench.action.quickOpenNavigateNextInEditorPicker"
+      //   ]
+      // },
+      {
+        "before": ["<leader>", "t"],
+        "commands": ["workbench.view.explorer"]
+      },
+      {
+        "before": ["<leader>", "q"],
+        //"commands": ["workbench.action.closeActiveEditor"]
+        "commands": ["workbench.action.closeEditorsInGroup"]
+      },
+      {
+        "before": [ "leader", "w" ],
+        "commands": [ "workbench.action.files.save", ]
+      },
+      {
+        "before": [ "leader", "y" ],
+        "commands": ["editor.action.clipboardCopyAction"]
+      },
+      {
+        "before": [ "leader", "p" ],
+        "commands": ["editor.action.clipboardPasteAction"]
+      },
+      {
+        "before": ["<C-n>"],
+        "commands": [":nohl"]
+      },
+      {
+        "before": ["K"],
+        "commands": ["lineBreakInsert"],
+        "silent": true
+      },
+      {
+        "before": ["<leader>", "r"],
+        "commands": ["workbench.files.action.showActiveFileInExplorer"]
+      },
+      {
+        "before": [ "E" ],
+        "after": [ "$" ]
+      },
+      {
+        "before": [ "B" ],
+        "after": [ "^" ]
+      },
+      // {
+      //   "before": ["s", "p"],
+      //   "after": ["`","[", "v", "`", "]"]
+      // },
+  
+      {
+        "before": ["<leader>", ";"],
+        "after": ["m", "q", "A", ";", "<Esc>", "`", "q"]
+      },
+      {
+        "before": ["<leader>", ","],
+        "after": ["m", "q", "A", ",", "<Esc>", "`", "q"]
+      },
+  
+    ],
+  
+    // Setting Cycler
+    "settings.cycle": [{
+      "id": "lineNumbers",
+      "values": [
+        {
+          "editor.lineNumbers": "off",
+          "editor.folding": false,
+          "editor.glyphMargin": false
+        },
+        {
+          "editor.lineNumbers": "on",
+          "editor.folding": true,
+          "editor.glyphMargin": true
+        }
+      ]
+    }],
+  
+  
+    // Configure glob patterns for excluding files and folders. 
+    // For example, the files explorer decides which files and folders to show 
+    // or hide based on this setting. 
+    // Read more about glob patterns [here](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).
+    "files.exclude": {
+    },
+    // Configure glob patterns for excluding files and folders in searches. 
+    // Inherits all glob patterns from the `files.exclude` setting.   
+    // Read more about glob patterns [here](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).
+    "search.exclude": {
+      "**/node_modules": true,
+    },
+    // Configure glob patterns of file paths to exclude from file watching. 
+    // Patterns must match on absolute paths 
+    // (i.e. prefix with ** or the full path to match properly). 
+    // Changing this setting requires a restart. 
+    // When you experience Code consuming lots of cpu time on startup, 
+    // you can exclude large folders to reduce the initial load.
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/*/**": true
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.folders.theme": "specific",
+    "material-icon-theme.hidesExplorerArrows": true,
+    "todo-tree.highlights.useColourScheme": true,
+  
+    "editor.tabCompletion": "onlySnippets",
+    "window.experimental.commandCenter": true,
+    "explorer.autoReveal": "focusNoScroll",
+    "editor.smoothScrolling": true,
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "editor.lineNumbers": "on",
+    "editor.fontSize": 16,
+
+    // debug 
+    // "debug.console.fontFamily": "Cascadia Code Light",
+    "debug.console.fontSize": 14,
+    // "debug.console.lineHeight": 18,
+
+    // import 使用单引号
+    // https://code.visualstudio.com/updates/v1_24#_preferences-for-auto-imports-and-generated-code
+    "typescript.preferences.quoteStyle": "single",
+
+    // Emmet
+    // "emmet.preferences": {
+    "emmet.syntaxProfiles": {
+      "xml": {
+        "attr_quotes": "single"
+      },
+      "html": {
+          "attr_quotes": "single"
+      },
+      "js": {
+          "attr_quotes": "single",
+          "self_closing_tag": true
+      },
+      "jsx": {
+          "attr_quotes": "single",
+          "self_closing_tag": true
+      }
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.accessibilitySupport": "off",
+    "terminal.integrated.fontSize": 14,
+    "chat.editor.fontSize": 14,
+
+    //--- rust analyzer
+    // toggle them with Ctrl+Alt pressed.
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "oneDarkPro.vivid": true,
+    "editor.unicodeHighlight.ambiguousCharacters": false
+  }
