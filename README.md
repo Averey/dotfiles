@@ -1,13 +1,40 @@
 ## Install
+
 Clone onto your laptop:
 ```sh
-git clone git@github.com:Averey/dotfiles.git ~/dotfiles
+git clone https://github.com/Averey/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+git checkout master
 ```
 
-## Install NVIM
+### Font
+[FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
+
+### MAC
+#### Install Tools
 ```sh
-~/dotfiles/install/install-nvim.sh
+# eza
+brew install eza
 
-# open nvim and install plugin
-:PlugInstall
+#git
+brew install git
 ```
+
+#### Install Neovim
+```sh
+brew install neovim
+ln -s ~/dotfiles/nvim ~/.config/nvim
+```
+
+#### Install Alacritty
+```sh
+brew install alacritty
+ln -s ~/dotfiles/alacritty ~/.config/alacritty
+```
+
+#### Install Tmux
+```sh
+brew install tmux
+ln -s ~/dotfiles/tmux ~/.config/tmux
+```
+
