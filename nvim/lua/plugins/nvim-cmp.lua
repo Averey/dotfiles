@@ -58,7 +58,6 @@ return {
       },
       completion = { 
         completeopt = 'menu,menuone,noinsert',
-        completion = { border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, scrollbar = "║" },
       },
       window = {
         documentation = cmp.config.window.bordered(),

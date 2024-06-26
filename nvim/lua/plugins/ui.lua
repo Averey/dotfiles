@@ -1,37 +1,55 @@
 return {
   --[[colorscheme]]
   -- { 'rebelot/kanagawa.nvim', },
-  -- { 'folke/tokyonight.nvim', },
-  { 'olimorris/onedarkpro.nvim' },
-  {
-    'catppuccin/nvim',
-    name = 'catppuccin',
+  { 
+    'folke/tokyonight.nvim',
+    lazy = false,
     priority = 1000,
-    init = function()
-      -- colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-      vim.cmd.colorscheme 'catppuccin'
+    init = function ()
+      vim.cmd.colorscheme 'tokyonight'
     end,
     config = function ()
-      require("catppuccin").setup({
-        -- transparent_background = true,
-        styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-          comments = { "italic" }, -- Change the style of comments
-          conditionals = { "italic" },
-          loops = {},
-          functions = { "italic" },
-          keywords = {},
-          strings = {},
-          variables = {},
-          numbers = {},
-          booleans = {},
-          properties = {},
-          types = {},
-          operators = {},
-          -- miscs = {}, -- Uncomment to turn off hard-coded styles
+      require('tokyonight').setup({
+        style = "night",
+        styles = {
+          comments = { italic = true },
+          functions = { italic = true },
+          keywords = { italic = false },
+          floats = "normal"
         },
+        hide_inactive_statusline = true,
       })
     end
   },
+  -- {
+  --   'catppuccin/nvim',
+  --   name = 'catppuccin',
+  --   priority = 1000,
+  --   init = function()
+  --     -- colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+  --     vim.cmd.colorscheme 'catppuccin'
+  --   end,
+  --   config = function ()
+  --     require("catppuccin").setup({
+  --       -- transparent_background = true,
+  --       styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+  --         comments = { "italic" }, -- Change the style of comments
+  --         conditionals = { "italic" },
+  --         loops = {},
+  --         functions = { "italic" },
+  --         keywords = {},
+  --         strings = {},
+  --         variables = {},
+  --         numbers = {},
+  --         booleans = {},
+  --         properties = {},
+  --         types = {},
+  --         operators = {},
+  --         -- miscs = {}, -- Uncomment to turn off hard-coded styles
+  --       },
+  --     })
+  --   end
+  -- },
 
   { 'rcarriga/nvim-notify' },
   {
