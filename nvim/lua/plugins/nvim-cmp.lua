@@ -80,10 +80,15 @@ return {
 
 
           -- Get the completion entry text shown in the completion window
-          local label_detail = entry:get_completion_item().labelDetails
+          -- local label_detail = entry:get_completion_item().labelDetails
+          -- local content = item.abbr
+          -- if label_detail and label_detail.detail then
+          --   content = content .. label_detail.detail
+          -- end
+          local completion_item = entry:get_completion_item()
           local content = item.abbr
-          if label_detail and label_detail.detail then
-            content = content .. label_detail.detail
+          if completion_item and completion_item.labelDetails and completion_item.labelDetails.detail then
+            content = content .. completion_item.labelDetails.detail
           end
           -- log.debug(item.abbr, label_detail)
 
