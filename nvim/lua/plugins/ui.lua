@@ -1,12 +1,15 @@
 return {
   --[[colorscheme]]
   -- { 'rebelot/kanagawa.nvim', },
+  -- {'Averey/Zandromedai_nvim'},
+  { dir = '/Users/zhoujinlin/code/neovim/Zandromedai_nvim'},
   { 
     'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     init = function ()
       vim.cmd.colorscheme 'tokyonight'
+      -- vim.cmd.colorscheme 'andromedia'
     end,
     config = function ()
       require('tokyonight').setup({
