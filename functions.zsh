@@ -6,6 +6,9 @@ function ip() {
   iplocal="$(ipconfig getifaddr en0)"
   ipNet="$(dig +short myip.opendns.com @resolver1.opendns.com)"
   echo "local: ${iplocal}\nremote: ${ipNet}"
+  # 把远程 IP 粘贴到剪贴板
+  echo -n "${ipNet}" | pbcopy
+  echo "remote ip 已复制到剪贴板"
 }
 
 function manpdf() {

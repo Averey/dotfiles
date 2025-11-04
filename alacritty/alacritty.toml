@@ -1,3 +1,4 @@
+[general]
 import = [
   # uncomment the flavour you want below:
   # "~/.config/alacritty/catppuccin-latte.toml"
@@ -21,10 +22,12 @@ size = 16
 
 [window]
 # opacity = 0.95
+ opacity = 1
 # blur = true
 decorations = "Buttonless"
 padding = { x = 0, y = 0 }
 dynamic_padding = true
+option_as_alt = "OnlyLeft" # (macOS only)
 
 [keyboard]
 # use ctrl + number for selecting window
@@ -35,7 +38,6 @@ bindings= [
   {key="Key2", mods= "Control", chars= "\u001b[50;5u" },
   {key="Key3", mods= "Control", chars= "\u001b[51;5u" },
   {key="Key4", mods= "Control", chars= "\u001b[52;5u" },
-
   {key="Key5", mods= "Control", chars= "\u001b[53;5u" },
   {key="Key6", mods= "Control", chars= "\u001b[54;5u" },
   {key="Key7", mods= "Control", chars= "\u001b[55;5u" },
