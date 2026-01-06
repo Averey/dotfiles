@@ -15,15 +15,16 @@ TERM = "xterm-256color"
 # normal = { family = "MesloLGS Nerd Font", style = "Regular" }
 # normal = { family = "FiraCode Nerd Font", style = "Regular" }
 normal = { family = "FiraCode Nerd Font Mono", style = "Regular" }
+# normal = { family = "Maple Mono NF", style = "Regular" }
 # FiraCode 没有斜体
 # italic = { family = "MesloLGS Nerd Font" }
 # bold_italic = { family = "MesloLGS Nerd Font" }
-size = 16 
+size = 16
 
 [window]
-# opacity = 0.95
- opacity = 1
-# blur = true
+opacity = 0.9
+ # opacity = 1
+blur = true
 decorations = "Buttonless"
 padding = { x = 0, y = 0 }
 dynamic_padding = true

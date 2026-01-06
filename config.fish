@@ -5,7 +5,6 @@ end
 # https://github.com/3axap4eHko/prmt
 function fish_prompt
     # prmt --code $status '{path:cyan} {git:purple} {ok:green}{fail:red} '
-    #
     prmt '➜ {path:cyan}{git:purple.bold:: :}{ok:green:✓}{fail:red:✗} ❯ '
 end
 
